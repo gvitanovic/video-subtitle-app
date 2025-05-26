@@ -1,0 +1,29 @@
+.transcript-container {
+  max-height: 50vh;
+  height: 100%;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.transcript-heading {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.transcript-cue {
+  margin: 0;
+  padding: 4px 0;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+.transcript-cue-pointer {
+  cursor: pointer;
+}
+
+.transcript-cue-active {
+  background-color: #e6f7ff;
+  font-weight: bold;
+}
