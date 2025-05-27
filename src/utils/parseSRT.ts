@@ -4,7 +4,7 @@ export function parseSRT(srt: string): SubtitleCue[] {
   return srt
     .trim()
     .split(/\n\s*\n/)
-    .map(block => {
+    .map((block) => {
       const lines = block.split('\n');
       if (lines.length >= 3) {
         const [start, end] = lines[1].split(' --> ').map(timeToSeconds);

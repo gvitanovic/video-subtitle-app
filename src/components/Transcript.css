@@ -15,7 +15,9 @@
 .transcript-cue {
   margin: 0;
   padding: 4px 0;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   user-select: none;
 }
 
@@ -26,4 +28,14 @@
 .transcript-cue-active {
   background-color: #e6f7ff;
   font-weight: bold;
+  animation: cue-highlight 0.4s;
+}
+
+@keyframes cue-highlight {
+  from {
+    background-color: #fffbe6;
+  }
+  to {
+    background-color: #e6f7ff;
+  }
 }

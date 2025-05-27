@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const adapter = new LocalVideoAdapter();
-    
+
     adapter.getAvailableAssets().then(setAssets);
   }, []);
 
@@ -41,10 +41,7 @@ function App() {
             </option>
           ))}
         </select>
-        <button
-          style={{ marginLeft: '1rem' }}
-          onClick={() => setShowTranscript((prev) => !prev)}
-        >
+        <button style={{ marginLeft: '1rem' }} onClick={() => setShowTranscript((prev) => !prev)}>
           {showTranscript ? 'Hide' : 'Show'} Transcript
         </button>
       </div>
@@ -62,9 +59,7 @@ function App() {
           <div
             className={
               'app-transcript-panel ' +
-              (showTranscript
-                ? 'app-transcript-panel--visible'
-                : 'app-transcript-panel--hidden')
+              (showTranscript ? 'app-transcript-panel--visible' : 'app-transcript-panel--hidden')
             }
           >
             {showTranscript && (

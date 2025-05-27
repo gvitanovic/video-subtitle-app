@@ -19,7 +19,7 @@ describe('Transcript', () => {
   it('highlights the active cue', () => {
     render(<Transcript transcript={cues} currentTime={3.5} />);
     const all = screen.getAllByText('Second line');
-    const active = all.find(el => el.className.includes('transcript-cue-active'));
+    const active = all.find((el) => el.className.includes('transcript-cue-active'));
     expect(active).toBeDefined();
     expect(active).toHaveClass('transcript-cue-active');
   });
@@ -28,7 +28,7 @@ describe('Transcript', () => {
     const onSeek = vi.fn();
     render(<Transcript transcript={cues} currentTime={0} onSeek={onSeek} />);
     const all = screen.getAllByText('Second line');
-    const clickable = all.find(el => el.className.includes('transcript-cue-pointer'));
+    const clickable = all.find((el) => el.className.includes('transcript-cue-pointer'));
     expect(clickable).toBeDefined();
     if (clickable) fireEvent.click(clickable);
     expect(onSeek).toHaveBeenCalledWith(3);

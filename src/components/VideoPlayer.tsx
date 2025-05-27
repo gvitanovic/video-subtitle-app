@@ -1,10 +1,4 @@
-import {
-  useRef,
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-} from 'react';
+import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { parseSRT } from '../utils/parseSRT';
 import { type SubtitleCue, type VideoAsset } from '../types';
 import './VideoPlayer.css';
@@ -118,11 +112,7 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
     }, []);
 
     return (
-      <div
-        ref={containerRef}
-        onDoubleClick={handleFullScreen}
-        className="video-player-container"
-      >
+      <div ref={containerRef} onDoubleClick={handleFullScreen} className="video-player-container">
         <video
           ref={videoRef}
           data-testid="video-element"
@@ -136,16 +126,11 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
         </video>
 
         {currentCue && subtitlesEnabled && (
-          <div
-            className="video-player-subtitles"
-            style={{ fontSize: `${fontSize}%` }}
-          >
-            <span className="video-player-subtitles-text">
-              {currentCue.text}
-            </span>
+          <div className="video-player-subtitles" style={{ fontSize: `${fontSize}%` }}>
+            <span className="video-player-subtitles-text">{currentCue.text}</span>
           </div>
         )}
       </div>
     );
-  }
+  },
 );

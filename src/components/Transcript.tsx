@@ -15,7 +15,7 @@ export const Transcript: React.FC<Props> = ({ transcript, currentTime, onSeek })
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const activeIndex = transcript.findIndex(
-    cue => currentTime >= cue.start && currentTime <= cue.end
+    (cue) => currentTime >= cue.start && currentTime <= cue.end,
   );
 
   useEffect(() => {
@@ -31,17 +31,14 @@ export const Transcript: React.FC<Props> = ({ transcript, currentTime, onSeek })
   }, [activeIndex]);
 
   return (
-    <div
-      ref={containerRef}
-      className="transcript-container"
-    >
+    <div ref={containerRef} className="transcript-container">
       <h3 className="transcript-heading">Transcript</h3>
       {transcript.map((cue, index) => {
         const isActive = index === activeIndex;
         return (
           <p
             key={index}
-            ref={el => {
+            ref={(el) => {
               cueRefs.current[index] = el;
             }}
             className={[
