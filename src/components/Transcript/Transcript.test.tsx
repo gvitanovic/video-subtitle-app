@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { Transcript } from './Transcript';
-import { type SubtitleCue } from '../types';
+import { type SubtitleCue } from '../../types';
 
 const cues: SubtitleCue[] = [
   { start: 0, end: 2, text: 'First line' },

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { VideoPlayer } from './VideoPlayer';
-import { type VideoAsset, type SubtitleCue } from '../types';
+import { type VideoAsset, type SubtitleCue } from '../../types';
 
 // Mock parseSRT to return a known cue
 vi.mock('../utils/parseSRT', () => ({

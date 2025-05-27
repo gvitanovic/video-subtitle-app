@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { type SubtitleCue } from '../types';
+import { type SubtitleCue } from '../../types';
 
 import './Transcript.css';
 

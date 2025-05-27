@@ -41,7 +41,7 @@ describe('App', () => {
   it('shows and hides transcript panel', async () => {
     render(<App />);
     // Select the video
-    fireEvent.change(screen.getByLabelText(/Select Video/i), { target: { value: '0' } });
+    fireEvent.change(screen.getAllByLabelText(/Select Video/i)[0], { target: { value: '0' } });
     // Transcript should be visible
     expect(await screen.findByTestId('transcript')).toBeInTheDocument();
     // Click hide transcript

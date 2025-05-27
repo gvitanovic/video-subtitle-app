@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+
 import { LocalVideoAdapter } from './adapters/LocalVideoAdapter';
-import { VideoPlayer } from './components/VideoPlayer';
-import { Transcript } from './components/Transcript';
+import { Transcript, VideoSelect, VideoPlayer } from './components';
+
 import { type SubtitleCue, type VideoAsset } from './types';
 
 import './App.css';
@@ -25,22 +26,14 @@ function App() {
     <div className="app-root">
       <h1>Movie Time</h1>
       <div className="app-header">
-        <label htmlFor="video-select">Select Video: </label>
-        <select
-          id="video-select"
-          onChange={(e) => {
-            const index = parseInt(e.target.value);
-            setSelected(assets[index]);
+        <VideoSelect
+          assets={assets}
+          selectedId={selected ? assets.findIndex((a) => a.id === selected.id) : null}
+          onSelect={(asset) => {
+            setSelected(asset);
             setCues([]);
           }}
-        >
-          <option value="">-- Choose --</option>
-          {assets.map(({ title, id }) => (
-            <option key={id} value={id}>
-              {title}
-            </option>
-          ))}
-        </select>
+        />
         <button style={{ marginLeft: '1rem' }} onClick={() => setShowTranscript((prev) => !prev)}>
           {showTranscript ? 'Hide' : 'Show'} Transcript
         </button>

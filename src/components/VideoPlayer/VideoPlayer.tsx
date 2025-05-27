@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
-import { parseSRT } from '../utils/parseSRT';
-import { type SubtitleCue, type VideoAsset } from '../types';
+import { parseSRT } from '../../utils/parseSRT';
+import { type SubtitleCue, type VideoAsset } from '../../types';
 import './VideoPlayer.css';
 
 interface Props {
@@ -119,6 +119,7 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
           width="100%"
           height="100%"
           controls
+          controlsList="nofullscreen"
           className="video-player-element"
         >
           <source src={asset.videoUrl} type="video/mp4" />
