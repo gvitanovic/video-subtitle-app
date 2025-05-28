@@ -1,8 +1,5 @@
 import { type VideoAsset } from '../types';
-
-export interface VideoAssetAdapter {
-  getAvailableAssets(): Promise<VideoAsset[]>;
-}
+import { type VideoAssetAdapter } from './VideoAssetAdapter';
 
 export class LocalVideoAdapter implements VideoAssetAdapter {
   async getAvailableAssets(): Promise<VideoAsset[]> {

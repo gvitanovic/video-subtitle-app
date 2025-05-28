@@ -1,26 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-import { LocalVideoAdapter } from './adapters/LocalVideoAdapter';
 import { Transcript, VideoSelect, VideoPlayer } from './components';
 
 import { type SubtitleCue, type VideoAsset } from './types';
 
 import './App.css';
+import { useVideoAssets } from './adapters/useVideoAssets';
 
 function App() {
-  const [assets, setAssets] = useState<VideoAsset[]>([]);
   const [selected, setSelected] = useState<VideoAsset | null>(null);
   const [cues, setCues] = useState<SubtitleCue[]>([]);
   const [currentTime, setCurrentTime] = useState(0);
   const [showTranscript, setShowTranscript] = useState(true);
 
+  const { assets } = useVideoAssets('local');
+
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const adapter = new LocalVideoAdapter();
-
-    adapter.getAvailableAssets().then(setAssets);
-  }, []);
 
   return (
     <div className="app-root">
